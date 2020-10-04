@@ -23,9 +23,6 @@ from requests import exceptions as RExceptions
 from time import sleep
 from langdetect import detect
 
-
-Corpora = {}#variable returned as context in django
-
 def BuildCorp(Domaine, Name):
     Lang = detect(Domaine)
     wikipedia.set_lang(Lang)#setting the language of search
@@ -87,7 +84,3 @@ def BuildCorp(Domaine, Name):
     write_file = open(my_file, "w")
     json.dump(Corpora, write_file, indent=2)
     write_file.close()
-
-    #return Corpora
-
-BuildCorp("العلم الجيولوجيا الأرض", "Science")
